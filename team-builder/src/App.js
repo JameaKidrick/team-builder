@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import TeamBuilderForm from './Components/TeamBuilderForm';
 import Team from './Components/Team';
 
+// STEP 1 
+  // CREATE USESTATE FOR EXISTING MEMBER LOG
+// STEP 2 
+  // CREATE FUNCTION FOR ADDING NEW MEMBERS
+  // MAKE SURE TO PASS SETTER METHOD
+// STEP 3 
+  // ADD RETURN WITH DIV THAT SAYS 'HELLO WORLD' AS A TEST
+// STEP 4 EXPORT
+  // EXPORT DEFAULT
+// GO TO TEAM.JS FOR STEP 5
+// ...
+// STEP 11
+  // WITHIN RETURN ADD FORM AND TEAM COMPONENTS WITH REFERENCES TO THE STATE USED IN THE TEAM COMPONENT AND THE FUNCTION USED IN THE FORM COMPONENT
 
 function App() {
   const [member, setMember] = useState([
@@ -50,7 +63,7 @@ function App() {
   return (
     <div>
       <h1> Hello World! </h1>
-      <h2> Meet the Team </h2>
+      <h2> Join the Bat-Family </h2>
       <TeamBuilderForm addNewTeamMember={addNewTeamMember} />
       <Team member={member} />
     </div>
