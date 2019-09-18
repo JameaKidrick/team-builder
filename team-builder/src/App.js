@@ -36,12 +36,23 @@ function App() {
       role: 'Vigilante'
     }
   ]);
-  
-  
-  
+  const addNewTeamMember = person => {
+    const newMember = {
+      id: Date.now(),
+      name: person.name,
+      email: person.email,
+      role: person.role
+    };
+    setMember([...member, newMember]);
+  };
+
+
   return (
-    <div className="App">
-      Hello World!
+    <div>
+      <h1> Hello World! </h1>
+      <h2> Meet the Team </h2>
+      <TeamBuilderForm addNewTeamMember={addNewTeamMember} />
+      {/* <Team member={member} /> */}
     </div>
   );
 }
