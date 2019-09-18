@@ -49,6 +49,7 @@ function App() {
       role: 'Vigilante'
     }
   ]);
+
   const addNewTeamMember = person => {
     const newMember = {
       id: Date.now(),
@@ -59,12 +60,23 @@ function App() {
     setMember([...member, newMember]);
   };
 
+  // ADDING STATE PROPERTY FOR MEMBER EDITING
+  const membertoEdit = update => {
+    const newInfo = {
+      id: Date.now(),
+      name: update.name,
+      email: update.email,
+      role: update.role
+    };
+    setMember([...member], newInfo)
+  }
+
 
   return (
     <div>
       <h1> Hello World! </h1>
       <h2> Join the Bat-Family </h2>
-      <TeamBuilderForm addNewTeamMember={addNewTeamMember} />
+      <TeamBuilderForm addNewTeamMember={addNewTeamMember} editmember={membertoEdit} />
       <Team member={member} />
     </div>
   );

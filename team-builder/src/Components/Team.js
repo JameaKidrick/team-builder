@@ -11,6 +11,8 @@ const Team = props => {
         <>
             {props.member.map(person => (
                 <div className='person' key={person.id}>
+                    {/* ADDED BUTTON FOR EDIT */}
+                    <button><i class="fas fa-edit"></i></button>
                     <h2>{person.name}</h2>
                     <p>{person.email}</p>
                     <p>{person.role}</p>
