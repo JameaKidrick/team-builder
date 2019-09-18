@@ -52,7 +52,7 @@ function App() {
       <h1> Hello World! </h1>
       <h2> Meet the Team </h2>
       <TeamBuilderForm addNewTeamMember={addNewTeamMember} />
-      {/* <Team member={member} /> */}
+      <Team member={member} />
     </div>
   );
 }

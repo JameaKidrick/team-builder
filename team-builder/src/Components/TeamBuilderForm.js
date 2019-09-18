@@ -2,38 +2,46 @@ import React, { useState } from "react";
 
 const TeamBuilderForm = props => {
     const [member, setMember] = useState({name: '', email: '', role: ''});
-    // const handleChanges = e => 
+    const handleChanges = e => {
+        setMember({...member, [e.target.name]:e.target.value})
+    }
 
+    const submitForm = e => {
+        e.preventDefault();
+        props.addNewTeamMember(member);
+        setMember({name: '', email: '', role: ''});
+    };
 
 
     return (
-        <form>
+        <form onSubmit = {submitForm}>
             <label htmlFor='name'>Name</label>
             <input 
             id='name'
             type='text'
             name='name'
-            // onChange={handleChanges}
+            onChange={handleChanges}
             value={member.name}
             />
 
-            <label htmlFor='name'>Name</label>
+            <label htmlFor='email'>Email</label>
             <input 
-            id='name'
+            id='email'
             type='text'
-            name='name'
-            // onChange={handleChanges}
-            value={member.name}
+            name='email'
+            onChange={handleChanges}
+            value={member.email}
             />
 
-            <label htmlFor='name'>Name</label>
+            <label htmlFor='role'>Role</label>
             <input 
-            id='name'
+            id='role'
             type='text'
-            name='name'
-            // onChange={handleChanges}
-            value={member.name}
+            name='role'
+            onChange={handleChanges}
+            value={member.role}
             />
+            <button type='submit'>Add Member</button>
         </form>
     )
 }
