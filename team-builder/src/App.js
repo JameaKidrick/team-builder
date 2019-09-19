@@ -1,6 +1,23 @@
 import React, { useState } from "react";
 import TeamBuilderForm from './Components/TeamBuilderForm';
 import Team from './Components/Team';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components'
+import background from './Images/gotham-city.jpg'
+import { ImageBackground } from './'
+
+
+const ContainerStyles = {
+  // backgroundImage: 'url(./Images/gotham-city.jpg)'
+  // background: 'red'
+  textAlign:'center'
+}
+
+
+
+
+
 
 // STEP 1 
   // CREATE USESTATE FOR EXISTING MEMBER LOG
@@ -60,7 +77,8 @@ function App() {
     setMember([...member, newMember]);
   };
 
-  // ADDING STATE PROPERTY FOR MEMBER EDITING
+  // STRETCH STEP 2
+    // ADDING STATE PROPERTY FOR MEMBER EDITING
   const membertoEdit = update => {
     const newInfo = {
       id: Date.now(),
@@ -73,13 +91,21 @@ function App() {
 
 
   return (
-    <div>
+    <div style={ContainerStyles}>
       <h1> Hello World! </h1>
       <h2> Join the Bat-Family </h2>
-      <TeamBuilderForm addNewTeamMember={addNewTeamMember} editmember={membertoEdit} />
-      <Team member={member} />
+      <TeamBuilderForm addNewTeamMember={addNewTeamMember} membertoEdit={membertoEdit} />
+      <Team member={member} membertoEdit={membertoEdit} />
     </div>
   );
+
+
+
+
+
 }
 
 export default App;
+
+
+// STYLING

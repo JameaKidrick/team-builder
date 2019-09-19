@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 // STEP 7 
     // CREATE TEAMBUILDERFORM FUNCTION WHICH WILL INCLUDE A USESTATE WITH KEY:VALUE PAIRS
@@ -16,6 +19,31 @@ import React, { useState } from "react";
 // GO TO APP.JS FOR STEP 11
 
 const TeamBuilderForm = props => {
+    // STYLING
+    const useStyles = makeStyles(theme => ({
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center'
+        },
+        textField: {
+            marginLeft: theme.spacing(1),
+            marginRight: theme.spacing(1),
+        },
+        dense: {
+            marginTop: theme.spacing(2),
+        },
+        button: {
+            margin: theme.spacing(1)
+        },
+        input: {
+            display: 'none',
+        },
+        }));
+
+    // BUILDING FORM
+    const classes = useStyles();
+
     const [member, setMember] = useState({name: '', email: '', role: ''});
     const handleChanges = e => {
         setMember({...member, [e.target.name]:e.target.value})
@@ -27,36 +55,51 @@ const TeamBuilderForm = props => {
         setMember({name: '', email: '', role: ''});
     };
 
+    // STRETCH STEP 3
+        // CREATE USEEFFECT TO SYNC EDIT THEREBY UPDATING MEMBER STATE OBJECT
+    useEffect(() => {
+        props.membertoEdit(member);
+        setMember({...member, [member.name]:member.value})
+    }, [member]);
 
     return (
-        <form onSubmit = {submitForm}>
-            <label htmlFor='name'>Name</label>
-            <input 
+        <form className={classes.container} onSubmit = {submitForm}>
+            <label htmlFor='name'></label>
+            <TextField 
             id='name'
+            className={classes.textField}
+            variant="outlined"
+            label="Name"
             type='text'
             name='name'
             onChange={handleChanges}
             value={member.name}
             />
 
-            <label htmlFor='email'>Email</label>
-            <input 
+            <label htmlFor='email'></label>
+            <TextField 
             id='email'
+            className={classes.textField}
+            variant="outlined"
+            label="Email"
             type='text'
             name='email'
             onChange={handleChanges}
             value={member.email}
             />
 
-            <label htmlFor='role'>Role</label>
-            <input 
+            <label htmlFor='role'></label>
+            <TextField  
             id='role'
+            className={classes.textField}
+            variant="outlined"
+            label="Role"
             type='text'
             name='role'
             onChange={handleChanges}
             value={member.role}
             />
-            <button type='submit'>Add Member</button>
+            <Button variant='outlined' color="inherit" className={classes.button} type='submit'>Add Member</Button>
         </form>
     )
 }
