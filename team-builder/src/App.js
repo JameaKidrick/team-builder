@@ -1,28 +1,23 @@
 import React, { useState } from "react";
 import TeamBuilderForm from './Components/TeamBuilderForm';
 import Team from './Components/Team';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import styled from 'styled-components'
 import background from './Images/gotham-city.jpg'
 import { ImageBackground } from './'
 
 
+// STYLING
 const ContainerStyles = {
-  // backgroundImage: 'url(./Images/gotham-city.jpg)'
-  // background: 'red'
-  textAlign:'center'
+  backgroundImage: 'url(background)',
+  textAlign:'center',
+  paddingLeft: '3%'
 }
 
 const cardStyles = {
-  border: '2px solid red',
   marginTop: '5%',
   display: 'flex',
   flexWrap: 'wrap',
 
 }
-
-
 
 
 // STEP 1 
@@ -39,6 +34,7 @@ const cardStyles = {
 // STEP 11
   // WITHIN RETURN ADD FORM AND TEAM COMPONENTS WITH REFERENCES TO THE STATE USED IN THE TEAM COMPONENT AND THE FUNCTION USED IN THE FORM COMPONENT
 
+// BUILDING APP
 function App() {
   const [member, setMember] = useState([
     {
@@ -70,6 +66,18 @@ function App() {
       name: 'Red Hood',
       email: 'underthehood@gmail.com',
       role: 'Vigilante'
+    },
+    {
+      id: 5,
+      name: 'Red Robin',
+      email: 'RR@gmail.com',
+      role: 'Teen Titans Leader'
+    },
+    {
+      id: 6,
+      name: 'Batwoman',
+      email: 'LadyBat@gmail.com',
+      role: 'Superhero'
     }
   ]);
 
@@ -98,7 +106,7 @@ function App() {
 
   return (
     <div style={ContainerStyles}>
-      <h1> Hello World! </h1>
+      <h1> Hello Gotham City! </h1>
       <h2> Join the Bat-Family </h2>
       <TeamBuilderForm addNewTeamMember={addNewTeamMember} membertoEdit={membertoEdit} />
       <div style={cardStyles}>

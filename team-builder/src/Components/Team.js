@@ -7,11 +7,13 @@ import React from "react";
     // EXPORT DEFAULT
 // GO TO TEAMBUILDERFORM.JS FOR STEP 7
 
+// STYLING
 const cardStyle = {
     background: 'skyblue',
     width: '20%',
     height: '50%',
     margin: '2%',
+    borderRadius: '20px 0',
     display: 'flex',
     flexWrap: 'wrap',
     flexDirection: 'column'
@@ -19,9 +21,15 @@ const cardStyle = {
 }
 
 const btn = {
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
+    background: 'skyblue',
+    border: 'none',
+    fontSize: '1.5rem',
+    outline: 'none',
+    cursor: 'pointer'
 }
 
+// BUILDING TEAM MEMBER CARD
 const Team = props => {
     return (
         <>
