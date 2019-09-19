@@ -10,9 +10,17 @@ import React from "react";
 const cardStyle = {
     background: 'skyblue',
     width: '20%',
-    // display: 'flex',
+    height: '50%',
+    margin: '2%',
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection: 'column'
+    
 }
 
+const btn = {
+    alignSelf: 'flex-end'
+}
 
 const Team = props => {
     return (
@@ -21,7 +29,7 @@ const Team = props => {
                 <div style={cardStyle} className='person' key={person.id}>
                     {/*   STRETCH STEP 1 */}
                         {/* ADDED BUTTON FOR EDIT */}
-                    <button onClick={props.membertoEdit}><i class="fas fa-edit"></i></button>
+                    <button style={btn} onClick={props.membertoEdit}><i class="fas fa-edit"></i></button>
                     <h2>{person.name}</h2>
                     <p>{person.email}</p>
                     <p>{person.role}</p>

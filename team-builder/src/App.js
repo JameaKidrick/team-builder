@@ -14,7 +14,13 @@ const ContainerStyles = {
   textAlign:'center'
 }
 
+const cardStyles = {
+  border: '2px solid red',
+  marginTop: '5%',
+  display: 'flex',
+  flexWrap: 'wrap',
 
+}
 
 
 
@@ -95,7 +101,9 @@ function App() {
       <h1> Hello World! </h1>
       <h2> Join the Bat-Family </h2>
       <TeamBuilderForm addNewTeamMember={addNewTeamMember} membertoEdit={membertoEdit} />
-      <Team member={member} membertoEdit={membertoEdit} />
+      <div style={cardStyles}>
+        <Team member={member} membertoEdit={membertoEdit} />
+      </div>
     </div>
   );
 
