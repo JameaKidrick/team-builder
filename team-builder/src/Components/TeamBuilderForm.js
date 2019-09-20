@@ -59,8 +59,8 @@ const TeamBuilderForm = props => {
         // CREATE USEEFFECT TO SYNC EDIT THEREBY UPDATING MEMBER STATE OBJECT
     useEffect(() => {
         props.membertoEdit(member);
-        setMember({...member, [member.name]:member.value})
-    }, []);
+        // setMember({...member, [member.name]:member.value})
+    }, [member]);
 
     return (
         <form className={classes.container} onSubmit = {submitForm}>
@@ -105,3 +105,5 @@ const TeamBuilderForm = props => {
 }
 
 export default TeamBuilderForm;
+
+// NEED TO ADD FORM FOR EDITING AFTER BUTTON IS PRESSED
